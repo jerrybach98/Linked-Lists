@@ -4,6 +4,7 @@ class LinkedList
   def initialize
     @head = nil
     @tail = nil
+    @list_size = 0
   end
 
 
@@ -20,23 +21,27 @@ class LinkedList
       # at end of list
       current_node.next_node = Node.new(value, nil)
     end
-
-    # add to beginning
-    # if empty else
-    def prepend(value)
-      if @head == nil
-      @head = Node.new(value, nil)
-      else 
-        old_head = @head
-        @head = Node.new(value, old_head)
-      end
-    end
-
   end
 
-  
+    # add to beginning
+    # set a new head and next value to old head
   def prepend(value)
-    # if head head value to front
+    if @head == nil
+    @head = Node.new(value, nil)
+    else 
+      old_head = @head
+      @head = Node.new(value, old_head)
+    end
+  end
+ 
+  
+  def size()
+    current_node = @head 
+      while current_node do
+        current_node = current_node.next_node
+        @list_size += 1
+      end
+      puts "Linked list size: #{@list_size}"
   end
 
 end
@@ -65,3 +70,5 @@ puts linked_list.head.next_node.value
 puts linked_list.head.next_node.next_node.value
 puts linked_list.head.next_node.next_node.next_node.value
 puts "- nil"
+
+linked_list.size
