@@ -100,6 +100,26 @@ class LinkedList
     false
   end
 
+  def find(value)
+    current_node = @head
+    index = 0
+    found = false
+    while current_node != nil
+      if current_node.value == value
+        found = true
+        break
+      end
+      index += 1
+      current_node = current_node.next_node
+    end
+
+    if found == true
+      puts "Value is at index: #{index}"
+    elsif 
+      puts "Value does not exist in list"
+    end
+  end
+
 end
 
 class Node
@@ -135,3 +155,4 @@ linked_list.at(3)
 
 puts linked_list.contains?(4)
 puts linked_list.contains?(6)
+linked_list.find(4)
