@@ -23,8 +23,8 @@ class LinkedList
     end
   end
 
-    # add to beginning
-    # set a new head and next value to old head
+  # add to beginning
+  # set a new head and next value to old head
   def prepend(value)
     if @head == nil
     @head = Node.new(value, nil)
@@ -34,7 +34,7 @@ class LinkedList
     end
   end
  
-  
+  # iterate through nodes and count
   def size()
     current_node = @head 
       while current_node do
@@ -43,6 +43,25 @@ class LinkedList
       end
       puts "Linked list size: #{@list_size}"
   end
+
+  def head_value 
+    @head.value
+    puts "Head value: #{@head.value}"
+  end
+
+  def tail_value 
+    current_node = @head 
+    while current_node.next_node != nil
+      current_node = current_node.next_node
+      @tail = current_node
+    end
+    @tail.value
+    puts "Tail value: #{@tail.value}"
+  end
+
+  def at(index)
+
+  end 
 
 end
 
@@ -60,8 +79,8 @@ end
 
 linked_list = LinkedList.new
 linked_list.append(2)
-linked_list.append(3)
 linked_list.append(4)
+linked_list.append(6)
 linked_list.prepend(1)
 
 
@@ -72,3 +91,5 @@ puts linked_list.head.next_node.next_node.next_node.value
 puts "- nil"
 
 linked_list.size
+linked_list.head_value
+linked_list.tail_value
