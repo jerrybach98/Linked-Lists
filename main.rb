@@ -20,10 +20,23 @@ class LinkedList
       # at end of list
       current_node.next_node = Node.new(value, nil)
     end
+
+    # add to beginning
+    # if empty else
+    def prepend(value)
+      if @head == nil
+      @head = Node.new(value, nil)
+      else 
+        old_head = @head
+        @head = Node.new(value, old_head)
+      end
+    end
+
   end
 
   
   def prepend(value)
+    # if head head value to front
   end
 
 end
@@ -41,12 +54,14 @@ end
 
 
 linked_list = LinkedList.new
-linked_list.append(1)
 linked_list.append(2)
 linked_list.append(3)
+linked_list.append(4)
+linked_list.prepend(1)
 
 
 puts "h: #{linked_list.head.value}"
 puts linked_list.head.next_node.value
 puts linked_list.head.next_node.next_node.value
+puts linked_list.head.next_node.next_node.next_node.value
 puts "- nil"
