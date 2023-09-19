@@ -86,6 +86,20 @@ class LinkedList
     previous_node.next_node = nil
   end 
 
+  #contains?(value)
+
+  def contains?(value)
+    current_node = @head
+    while current_node != nil
+      if current_node.value == value
+        return true
+      end
+      current_node = current_node.next_node
+    end
+
+    false
+  end
+
 end
 
 class Node
@@ -118,3 +132,6 @@ linked_list.size
 linked_list.head_value
 linked_list.tail_value
 linked_list.at(3)
+
+puts linked_list.contains?(4)
+puts linked_list.contains?(6)
