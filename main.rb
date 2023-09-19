@@ -60,7 +60,30 @@ class LinkedList
   end
 
   def at(index)
+    current_node = @head 
+    counter = 0
+    until counter == index
+      current_node = current_node.next_node
+      counter += 1
+    end
+    
+    if current_node == nil
+      puts "Node does not exist at index #{index}"
+    else
+    puts "Node at index #{index}: #{current_node.value}"
+    end
+  end 
 
+  # end, if next node = nil, set value to nil?
+  # point previous value to tail
+  def pop
+    current_node = @head
+    while current_node.next_node != nil
+      previous_node = current_node
+      current_node = current_node.next_node
+    end
+    puts "Last node removed: #{current_node.value}"
+    previous_node.next_node = nil
   end 
 
 end
@@ -90,6 +113,8 @@ puts linked_list.head.next_node.next_node.value
 puts linked_list.head.next_node.next_node.next_node.value
 puts "- nil"
 
+linked_list.pop
 linked_list.size
 linked_list.head_value
 linked_list.tail_value
+linked_list.at(3)
