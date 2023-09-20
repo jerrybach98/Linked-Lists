@@ -120,6 +120,27 @@ class LinkedList
     end
   end
 
+  # Head:( value ) -> ( value ) -> ( value ) -> nil
+  # conatenate to a string or array/if array flatten
+  # first value head, 
+  def to_s
+    list = ""
+    current_node = @head
+
+    if @head != nil
+      list << "Head:( #{current_node.value} ) -> " 
+    end
+
+    while current_node.next_node != nil
+      current_node = current_node.next_node
+      list << "( #{current_node.value} ) -> "
+    end
+
+    list << "nil"
+
+    puts list
+  end
+
 end
 
 class Node
@@ -140,12 +161,8 @@ linked_list.append(4)
 linked_list.append(6)
 linked_list.prepend(1)
 
+linked_list.to_s
 
-puts "h: #{linked_list.head.value}"
-puts linked_list.head.next_node.value
-puts linked_list.head.next_node.next_node.value
-puts linked_list.head.next_node.next_node.next_node.value
-puts "- nil"
 
 linked_list.pop
 linked_list.size
@@ -156,3 +173,5 @@ linked_list.at(3)
 puts linked_list.contains?(4)
 puts linked_list.contains?(6)
 linked_list.find(4)
+
+linked_list.to_s
